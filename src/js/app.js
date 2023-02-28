@@ -6,8 +6,8 @@ import "../style/index.css";
  * 
     {
         includeCover: true, // if includeCover is true the algorithm should
-        background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da", // this is the url of the image that will used as background for the profile cover
-        avatarURL: "https://randomuser.me/api/portraits/women/42.jpg", // this is the url for the profile avatar
+        background: "https://static.vecteezy.com/system/resources/previews/001/849/553/original/modern-gold-background-free-vector.jpg", // this is the url of the image that will used as background for the profile cover
+        avatarURL: "https://avatars.githubusercontent.com/u/100654531?s=400&u=a763a09886576900a6ef0f6787f6709058bd36be&v=4", // this is the url for the profile avatar
         socialMediaPosition: "left", // social media bar position (left or right)
         
         twitter: null, // social media usernames
@@ -26,21 +26,34 @@ function render(variables = {}) {
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
-  let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
+  let cover = `<div class="cover"><img src="https://static.vecteezy.com/system/resources/previews/001/849/553/original/modern-gold-background-free-vector.jpg" /></div>`; //function string
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
-          <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <img src="https://avatars.githubusercontent.com/u/100654531?s=400&u=a763a09886576900a6ef0f6787f6709058bd36be&v=4" class="photo" />
+          <h1>${variables.name == null ? "" : variables.name} ${
+    variables.lastname == null ? "" : variables.lastname
+  }</h1>
+          <h2>${variables.role == null ? "" : variables.role}</h2>
+          <h3>${variables.city == null ? "" : variables.city} ${
+    variables.country == null ? "" : variables.country
+  }  
+  </h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a href="https://twitter.com/Marce_Sica/"${
+              variables.twitter ? variables.twitter : "MarceSica"
+            }><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://github.com/Marce-Sica/"${
+              variables.github ? variables.github : "Marce-Sica"
+            }><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/marcelo-sica-706457185/" ${
+              variables.linkedin ? variables.linkedin : "Marcelo Sica"
+            }><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/marce_sica/" ${
+              variables.instagram ? variables.instagram : "marce_sica"
+            }><i class="fa-brands fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
