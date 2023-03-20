@@ -41,21 +41,21 @@ function render(variables = {}) {
     variables.country == null ? "" : variables.country
   }  
   </h3>
-          <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/Marce_Sica/"${
-              variables.twitter ? variables.twitter : "MarceSica"
-            }><i class="fa-brands fa-twitter"></i></a></li>
-            <li><a href="https://github.com/Marce-Sica/"${
-              variables.github ? variables.github : "Marce-Sica"
-            }><i class="fa-brands fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/marcelo-sica-706457185/" ${
-              variables.linkedin ? variables.linkedin : "Marcelo Sica"
-            }><i class="fa-brands fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/marce_sica/" ${
-              variables.instagram ? variables.instagram : "marce_sica"
-            }><i class="fa-brands fa-instagram"></i></a></li>
-          </ul>
-        </div>
+  <ul class="${variables.socialMediaPosition}">
+  <li><a href="https://twitter.com/${
+    variables.twitter == null ? "" : variables.twitter
+  }"><i class="fa-brands fa-twitter"></i></a></li>
+  <li><a href="https://github.com/${
+    variables.github == null ? "" : variables.github
+  }"><i class="fa-brands fa-github"></i></a></li>
+  <li><a href="https://linkedin.com/${
+    variables.linkedin == null ? "" : variables.linkedin
+  }"><i class="fa-brands fa-linkedin"></i></a></li>
+  <li><a href="https://instagram.com/${
+    variables.instagram == null ? "" : variables.instagram
+  }"><i class="fa-brands fa-instagram"></i></a></li>
+</ul>
+</div>
     `;
 }
 
@@ -73,15 +73,15 @@ window.onload = function() {
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
-    twitter: null,
-    github: "alesanchezr",
-    linkedin: null,
-    instagram: null,
+    twitter: "",
+    github: "",
+    linkedin: "",
+    instagram: "",
     name: null,
     lastname: null,
-    role: null,
-    country: null,
-    city: null
+    role: "",
+    country: "",
+    city: ""
   };
   render(window.variables); //render the card for the first time
 
